@@ -1,0 +1,77 @@
+ /* Ensure full page layout */
+ body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+
+}
+
+main {
+flex: 1;
+min-height: 500px;
+display: flex;
+align-items: center;
+justify-content: flex-start; /* Align content to the left */
+position: relative;
+}
+
+.gradient {
+background-image: linear-gradient(310deg,
+hsl(266, 100%, 29%) 0%,
+hsl(266, 92%, 31%) 3%,
+hsl(266, 85%, 33%) 5%,
+hsl(266, 78%, 35%) 8%,
+hsl(266, 71%, 38%) 10%,
+hsl(266, 66%, 40%) 13%,
+hsl(266, 60%, 42%) 15%,
+hsl(266, 55%, 45%) 18%,
+hsl(266, 50%, 48%) 20%,
+hsl(266, 46%, 50%) 23%,
+hsl(266, 47%, 53%) 26%,
+hsl(266, 47%, 56%) 28%,
+hsl(266, 48%, 59%) 32%,
+hsl(266, 48%, 62%) 35%,
+hsl(266, 49%, 65%) 38%,
+hsl(266, 50%, 68%) 42%,
+hsl(266, 50%, 71%) 46%,
+hsl(266, 51%, 75%) 51%,
+hsl(266, 51%, 78%) 55%,
+hsl(266, 52%, 82%) 61%,
+hsl(266, 52%, 85%) 67%,
+hsl(266, 53%, 89%) 73%,
+hsl(266, 53%, 92%) 81%,
+hsl(266, 53%, 96%) 90%,
+hsl(0, 0%, 100%) 100%
+);
+height: 100%;
+width: 60%;
+position: absolute;
+left: 0;
+top: 0;
+clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
+z-index: -1;
+}
+
+.alvin1 {
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
+    height: 100%;
+    width: 60%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.dew {
+    height: 100%;
+    width: 40%;
+    padding: 50px;
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    width: 100%;
+}

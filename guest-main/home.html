@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    
+    <script src="js/jQuery3.4.1.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="css/home.css">
+
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div id="header-container"></div>
+
+    <script src="js/header.js"></script>
+
+    <main>
+        <div class="gradient"></div>
+
+        <div class="alvin1">
+            <div class="dew">
+                <p class="">Did you</p>
+                <p class="">know</p>
+
+                <br><br><br>
+
+                <h2 class="">PRODUCT</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore 
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                    exercitation ullamco laboris nisi ut aliquip ex ea 
+                    commodo consequat. </p>
+            </div>
+        </div>
+
+        <div class="alvin2">
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer-container">
+        Footer Content Here
+    </footer>
+
+    <script>
+        function load(url, elementId) {
+            let req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(elementId).innerHTML = req.responseText;
+        }
+
+        window.onload = function () {
+            load("header.html", "header-container");
+            load("footer.html", "footer-container");
+        };
+    </script>
+
+</body>
+</html>

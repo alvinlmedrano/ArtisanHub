@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Montserrat&family=Proxima+Nova:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Ensures full height */
+    position: relative;
+    overflow-y: auto; /* Allows scrolling */
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Try fixed instead of absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ensures it covers the screen */
+    background: url('img/bgAll.png') center/cover no-repeat;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+
+.parent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.div2 {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+}
+
+.div2 img {
+    min-height: 40vh;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; /* Centers the image */
+}
+
+.div2 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #984f21;
+    margin-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.div2 p {
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
+    padding-left: 40px; /* Adjust the left space */
+}
+
+.div2 p strong {
+    font-weight: bold;
+    color: #222;
+}
+
+.div3 {
+    flex: 2;
+    background: linear-gradient(90deg, #a6a6a6, #ffffff);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: auto; 
+    min-height: 40vh;
+}
+
+.div3 p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #27015a;
+    line-height: 1.6;
+}
+
+.style {
+    flex: 5;
+    min-height: 70px; /* Ensure it has a minimum height */
+    width: 70%;
+    padding-bottom: 12px;
+    background: url('img/bgAll.png') center/cover no-repeat;
+}
+
+.edi {
+    height: 45px;
+    width: 100%;
+    background: url('img/violet.png') center/cover no-repeat;
+}
+
+.review-container {
+    background: linear-gradient(to right, #8f2dd4 10%, #FFFFFF 90%) !important;
+    height: auto; 
+    width: 100%;
+    min-height: 40vh;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 0;
+}
+
+.box1 {
+    grid-column: span 3 / span 3;
+    grid-row: span 5 / span 5;
+}
+
+.box2 {
+    grid-column: span 2 / span 2;
+    grid-row: span 5 / span 5;
+    grid-column-start: 4;
+    margin-top: 90px;
+}
+
+.box1 > h1 {
+    color: #f57900;
+    padding-left: 40px;
+    font-size: 50px;
+    font-family: 'Montserrat';
+    margin: 5; /* Remove extra margins */
+    margin: 0;
+}
+
+.nagReview {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    margin: 0;
+}
+
+
+.logoPic {
+    width: 80px;
+    height: auto;
+    min-height: 10px;
+}
+
+.logoPic img {
+    min-height: 10vh;
+    width: 100%;
+    max-width: 75px; /* Adjust as needed */
+    border-radius: 50%; /* Ensures a circular shape */
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; /* Centers the image */
+    border: 1px solid white; /* Optional: Add a border */
+}
+
+.allInfo {
+    width: 100%;
+    height: auto;
+    min-height: 50px;
+    color: #ffffff;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.allInfo h6 {
+    font-size: 18px;
+    margin: 0; /* Remove extra margin */
+}
+
+.allInfo p {
+    font-size: 20px;
+    margin: 5px 0 0; /* Reduce spacing */
+}
+
+.review {
+    margin-left: auto; /* Aligns the review div to the right */
+    text-align: right; /* Aligns text to the right */
+    display: flex;
+    flex-direction: column; /* Stacks content inside vertically */
+    align-items: flex-end; /* Aligns inner content to the right */
+    gap: 10px; /* Adds space between textarea and button */
+    width: 100%; /* Ensure it takes up available width */
+}
+
+
+.review-box {
+    width: 80%; /* Make the textarea full-width for better usability */
+    height: auto;
+    min-height: 150px; /* Ensure it's tall enough for users to type in */
+    border: 2px solid black;
+    font-size: 20px;
+    margin-right: 50px;
+}
+
+.review-button {
+    width: 25%; /* Make the button full-width */
+    height: 35px; /* Adjust height as necessary */
+    background-color: #984f21; /* Example color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Add rounding */
+    cursor: pointer; /* Change cursor on hover */
+    justify-items: end;
+    margin-top: 10px;
+    margin-right: 30px;
+    font-weight: bold;
+}
+
+.cute {
+    margin-left: 30px;
+    font-size: 40px;
+}

@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
+}
+
+/* Logo */
+.logoko {
+    font-family: 'Cinzel Decorative', serif;
+    text-decoration: none;
+    color: black;
+    font-size: 35px;
+    font-weight: 590;
+}
+
+/* Navbar */
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 10px 20px;
+    position: relative;
+}
+
+#navbar li a {
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 580;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+.fas.fa-user {
+    font-size: 30px;
+}
+
+/* Hover Effects */
+#navbar li a.active {
+    color: #3f0092;
+}
+
+#navbar li a.active::after {
+    content: "";
+    width: 50%; /* Adjust for balance */
+    height: 2px;
+    background: #3f0092;
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%); /* ✅ Centers the underline */
+}
+
+
+/* === RESPONSIVE BURGER MENU === */
+.burger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #header {
+        padding: 15px;
+        position: relative;
+    }
+
+    .logoko {
+        color: black;
+        font-size: 28px;
+    }
+
+    /* Hide navbar initially */
+    #navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    #navbar.active {
+        display: flex;
+    }
+
+    #navbar li {
+        padding: 15px 0;
+    }
+
+    #navbar li a {
+        font-size: 18px;
+    }
+
+    /* Show burger icon */
+    .burger {
+        display: block;
+    }
+}

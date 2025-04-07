@@ -1,0 +1,14 @@
+.mainBox {
+    display: flex;
+    width: 518px;  /* Change from 518px to 100% for testing */
+    max-width: 518px; /* Keep max-width if needed */
+    height: 500px;
+    border: 2px solid black; /* Add a border to see its actual size */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+

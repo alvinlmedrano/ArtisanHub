@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/bgAll.png') center/cover no-repeat;
+    opacity: 0.1; /* Adjust this value as needed */
+    z-index: -1;
+}
+
+/* Header container */
+.header-container {
+    width: 100%;
+}
+
+/* Main content wrapper */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* Adjust height to avoid overlap */
+
+}
+
+.container {
+    display: flex;
+    flex-direction: row; /* Ensures cards appear in a row */
+    gap: 80px; /* Space between cards */
+    justify-content: center; /* Centers cards horizontally */
+    align-items: center; /* Centers cards vertically */
+}
+
+
+/* Card Styles */
+.card {
+
+    width: 300px;
+    height: 300px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: scale(1.05);
+}
+
+.artisan h2,
+.guest h2{
+    font-family: 'Montserrat', sans-serif;
+    color: #74461d;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.card p, .card h2 {
+    margin: 0 !important; /* Force removes any margin */
+    padding: 0 !important;
+    line-height: 1; /* Reduces height between lines */
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+    background: white;
+    padding: 50px;
+    width: 250px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.artiwel {
+    font-size: 14px;
+    font-weight: 600;
+    font-weight: bold;
+    color: #444;
+}
+
+.artiwel, .artisan-title {
+    margin: 0 !important; /* Force removes any margin */
+    padding: 0 !important;
+    line-height: 1; /* Reduces height between lines */
+}
+.artisan-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #74461d;
+}
+
+.fas.fa-user {
+    font-size: 20px;
+}
+
+.fas.fa-lock {
+    font-size: 30px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding: 10px;
+    margin: 10px 0;
+    background: white;
+}
+
+.input-group i {
+    margin-right: 10px;
+    color: #444;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+}
+
+.create-btn {
+    background: #74461d;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+.create-btn:hover {
+    background: #5a3415;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        height: auto;
+        padding: 40px 20px;
+    }
+    .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

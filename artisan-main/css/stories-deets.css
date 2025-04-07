@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Montserrat&family=Proxima+Nova&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Ensures full height */
+    position: relative;
+    overflow-y: scroll; /* Allows scrolling */
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Try fixed instead of absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ensures it covers the screen */
+    background: url('img/bgAll.png') center/cover no-repeat;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth; /* Optional: Adds smooth scrolling */
+}
+
+
+.parent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 0;
+}
+
+.div2 {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+}
+
+.div2 img {
+    height: 400px;
+    min-height: 40vh;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 5px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; /* Centers the image */
+}
+
+.div2 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #984f21;
+    margin-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.div2 p {
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
+    padding-left: 40px; /* Adjust the left space */
+}
+
+.div2 p strong {
+    font-weight: bold;
+    color: #222;
+}
+
+.div3 {
+    align-items: end;
+    padding: 20px;
+    width: 70%;
+    height: auto; 
+    min-height: 40vh;
+}
+
+
+.artisan-name {
+    font-family: 'Poppins'; /* Choose a bold font for visibility */
+    font-size: 40px; /* Adjust size as necessary */
+    font-weight: bold;
+    color: #f57900; /* Orange color */
+    text-transform: uppercase; /* Make text uppercase */
+    letter-spacing: 2px; /* Increase spacing between letters */
+    text-align: center; /* Centering the text */
+    margin: 0; /* Add margin as needed */
+    margin-bottom: 5px;
+    -webkit-text-stroke: 2px #984f21; /* Stroke - Dark Brown */
+}
+
+.cuteko {
+    flex: 2;
+    background: linear-gradient(90deg, #a6a6a6, #ffffff);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: auto; 
+    min-height: 40vh;
+}
+
+.cuteko p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #27015a;
+    line-height: 1.6;
+}
+
+.button-container {
+    margin-left: -50px;
+    display: flex;
+    align-items: row;
+}
+
+.crafts-button {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #984f21; /* Brown color */
+    color: white; /* Text color */
+    font-size: 24px; /* Text size */
+    font-weight: bold; /* Bold text */
+    border: none; /* No border */
+    border-radius: 20px; /* Rounded corners */
+    padding: 20px 50px; /* Padding inside the button */
+    width: 300px;
+    justify-content: flex-end;
+    display: flex;
+    margin-right: 500px;
+}
+
+.small-container {
+    margin-top: 50px;
+    display: flex;
+    margin-left: 60px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping for many products */
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns content to the top */
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    height: auto; 
+    min-height: 250px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+    overflow: hidden; /* Prevents extra spacing issues */
+}
+
+.img-container {
+    width: 100%; /* Adjusts to fit card width */
+    padding-top: 100%; /* Creates a square aspect ratio */
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the square without distortion */
+}
+
+.product_name {
+    font-size: clamp(14px, 2vw, 24px);
+    color: #74461d;
+    font-weight: bold;
+    margin: 15px 0 0 0;
+    text-transform: uppercase;
+    text-align: center;
+    word-wrap: break-word;
+    overflow: visible; /* Ensures text isn't clipped */
+    text-overflow: unset; /* Removes ellipsis */
+    white-space: normal; /* Allows wrapping */
+    display: block; /* Ensures block display */
+    max-height: none; /* Prevents height restrictions */
+}
+
