@@ -1,174 +1,73 @@
 <?php
-session_start();
-@include 'connection.php';
+    session_start();
+    @include 'connection.php';
 
-if (!isset($_SESSION['artisanId'])) {
-    header("Location: ../login.php");
-    exit();
-}
-
-$artisanId = $_SESSION['artisanId'];
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['form_type']) && $_POST['form_type'] === "edit_details") {
-        @include 'connection.php';
-
-        $name = $_POST['name'];
-        $age = $_POST['age'];
-        $address = $_POST['address'];
-
-        // Check if artisan details exist
-        $query = "SELECT COUNT(*) as count, profile_image FROM artisanprofile WHERE artisanId = ?";
-        $stmt = mysqli_prepare($conn, $query);
-        mysqli_stmt_bind_param($stmt, "i", $artisanId);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        $data = mysqli_fetch_assoc($result);
-        $count = $data['count'];
-        $currentProfileImage = $data['profile_image'] ?? 'default.png'; // Get current image
-        mysqli_stmt_close($stmt);
-
-        // Handle profile image upload
-        if (!empty($_FILES['profile_image']['name'])) {
-            $profile_image = $_FILES['profile_image']['name'];
-            $profile_image_tmp_name = $_FILES['profile_image']['tmp_name'];
-            $profile_image_folder = 'profile_img/' . basename($profile_image);
-        
-            if (move_uploaded_file($profile_image_tmp_name, $profile_image_folder)) {
-                $profile_image = basename($profile_image);
-            } else {
-                $profile_image = $currentProfileImage; // Keep the current image if upload fails
-            }
-        } else {
-            $profile_image = $currentProfileImage; // Keep the current image if no new file is uploaded
-        }
-
-
-        if ($count == 0) {
-            // Insert new record if no existing details
-            $query = "INSERT INTO artisanprofile (artisanId, name, age, address, profile_image) VALUES (?, ?, ?, ?, ?)";
-            $stmt = mysqli_prepare($conn, $query);
-            mysqli_stmt_bind_param($stmt, "issss", $artisanId, $name, $age, $address, $profile_image);
-            mysqli_stmt_execute($stmt);
-            mysqli_stmt_close($stmt);
-        } else {
-            // Update existing record
-            $query = "UPDATE artisanprofile SET name=?, age=?, address=?, profile_image=? WHERE artisanId=?";
-            $stmt = mysqli_prepare($conn, $query);
-            mysqli_stmt_bind_param($stmt, "sissi", $name, $age, $address, $profile_image, $artisanId);
-            mysqli_stmt_execute($stmt);
-            mysqli_stmt_close($stmt);
-        }
-
-        header('Location: artisanPage.php?openModal=editDeets');
+    if (!isset($_SESSION['artisanId'])) {
+        header("Location: ../login.php");
         exit();
+    }
 
-    } elseif (isset($_POST['form_type']) && $_POST['form_type'] === "add_product") {
-        $product_name = $_POST['product_name'];
-        $category = $_POST['category'];
-        $description = $_POST['description'];
+    $artisanId = $_SESSION['artisanId'];
 
-    
-        // Handle product image upload
-        if (!empty($_FILES['product_image']['name'])) {
-            $product_image = $_FILES['product_image']['name'];
-            $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
-            $product_image_folder = 'uploaded_img/' . basename($product_image);
-    
-            if (move_uploaded_file($product_image_tmp_name, $product_image_folder)) {
-                $product_image = basename($product_image);
-            } else {
-                $product_image = "default_product.png";
-            }
-        } else {
-            $product_image = "default_product.png";
-        }
-    
-        // Insert product
-        $query = "INSERT INTO product (artisanId, nameOfProduct, category, productDescription, productImage) VALUES (?, ?, ?, ?, ?)";
-        $stmt = mysqli_prepare($conn, $query);
-        mysqli_stmt_bind_param($stmt, "issss", $artisanId, $product_name, $category, $description, $product_image);
-    
-        if (mysqli_stmt_execute($stmt)) {
-            header("Location: artisanPage.php?success=ProductAdded&openModal=addProductModal");
-        } else {
-            echo "Error: " . mysqli_error($conn);
-        }
-    
-        mysqli_stmt_close($stmt);
-        exit();
-    }elseif (isset($_POST['form_type']) && $_POST['form_type'] === "add_story") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST['form_type']) && $_POST['form_type'] === "edit_details") {
+            @include 'connection.php';
 
+            $name = $_POST['name'];
+            $age = $_POST['age'];
+            $address = $_POST['address'];
 
-            if (!isset($_POST['title_story'], $_POST['category'], $_POST['place'], $_POST['description'])) {
-                die("Missing required fields.");
-            }
-        
-            $title = trim($_POST['title_story']);
-            $category = trim($_POST['category']);
-            $place = trim($_POST['place']);
-            $description = trim($_POST['description']);
-        
-            // Validate inputs (optional but recommended)
-            if (empty($title) || empty($category) || empty($place) || empty($description)) {
-                die("All fields are required.");
-            }
-        
-            // Handle image upload securely
-            $default_image = "default_story.png";
-            $artisan_image = $default_image;
+            // Check if artisan details exist
+            $query = "SELECT COUNT(*) as count, profile_image FROM artisanprofile WHERE artisanId = ?";
+            $stmt = mysqli_prepare($conn, $query);
+            mysqli_stmt_bind_param($stmt, "i", $artisanId);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $data = mysqli_fetch_assoc($result);
+            $count = $data['count'];
+            $currentProfileImage = $data['profile_image'] ?? 'default.png'; // Get current image
+            mysqli_stmt_close($stmt);
 
-            if (!empty($_FILES['artisan_image']['name'])) {
-                // Generate a unique filename
-                $artisan_image = uniqid('story_') . '.' . pathinfo($_FILES['artisan_image']['name'], PATHINFO_EXTENSION);
-                $artisan_image_folder = 'artisan_image/' . $artisan_image;
-
-                // Attempt to move the uploaded file
-                if (!move_uploaded_file($_FILES['artisan_image']['tmp_name'], $artisan_image_folder)) {
-                    $artisan_image = $default_image; // Revert to default if upload fails
+            // Handle profile image upload
+            if (!empty($_FILES['profile_image']['name'])) {
+                $profile_image = $_FILES['profile_image']['name'];
+                $profile_image_tmp_name = $_FILES['profile_image']['tmp_name'];
+                $profile_image_folder = 'profile_img/' . basename($profile_image);
+            
+                if (move_uploaded_file($profile_image_tmp_name, $profile_image_folder)) {
+                    $profile_image = basename($profile_image);
+                } else {
+                    $profile_image = $currentProfileImage; // Keep the current image if upload fails
                 }
-            }
-        
-            // Insert story into database
-            $query = "INSERT INTO artisanstories (artisanId, title, category, place, story, artisanPhoto) 
-                      VALUES (?, ?, ?, ?, ?, ?)";
-            $stmt = mysqli_prepare($conn, $query);
-        
-            if (!$stmt) {
-                die("Statement preparation failed: " . mysqli_error($conn));
-            }
-        
-            mysqli_stmt_bind_param($stmt, "isssss", $artisanId, $title, $category, $place, $description, $artisan_image);
-        
-            if (mysqli_stmt_execute($stmt)) {
-                header("Location: artisanPage.php?success=StoryAdded&openModal=addStory");
-                exit();
             } else {
-                echo "Error: " . mysqli_error($conn);
+                $profile_image = $currentProfileImage; // Keep the current image if no new file is uploaded
             }
-        
-            mysqli_stmt_close($stmt);
-        }elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['productId'])) {
-            $productId = intval($_POST['productId']);
-            // Handle product deletion if a request is made
-            $query = "DELETE FROM product WHERE productId = ?";
-            $stmt = mysqli_prepare($conn, $query);
-            mysqli_stmt_bind_param($stmt, "i", $productId);
-        
-            if (mysqli_stmt_execute($stmt)) {
-                header("Location: artisanPage.php?success=ProductUpdated&openModal=editProductModal");
+
+
+            if ($count == 0) {
+                // Insert new record if no existing details
+                $query = "INSERT INTO artisanprofile (artisanId, name, age, address, profile_image) VALUES (?, ?, ?, ?, ?)";
+                $stmt = mysqli_prepare($conn, $query);
+                mysqli_stmt_bind_param($stmt, "issss", $artisanId, $name, $age, $address, $profile_image);
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_close($stmt);
             } else {
-                echo "Error updating product: " . mysqli_error($conn);
+                // Update existing record
+                $query = "UPDATE artisanprofile SET name=?, age=?, address=?, profile_image=? WHERE artisanId=?";
+                $stmt = mysqli_prepare($conn, $query);
+                mysqli_stmt_bind_param($stmt, "sissi", $name, $age, $address, $profile_image, $artisanId);
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_close($stmt);
             }
-        
-            mysqli_stmt_close($stmt);
-            mysqli_close($conn);
-            exit;
-        }elseif (isset($_POST['form_type']) && $_POST['form_type'] === "edit_product") { //Edit Products and Update
-            $productId = intval($_POST['productId']);
+
+            header('Location: artisanPage.php?openModal=editDeets');
+            exit();
+
+        } elseif (isset($_POST['form_type']) && $_POST['form_type'] === "add_product") {
             $product_name = $_POST['product_name'];
             $category = $_POST['category'];
             $description = $_POST['description'];
+
         
             // Handle product image upload
             if (!empty($_FILES['product_image']['name'])) {
@@ -179,52 +78,155 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (move_uploaded_file($product_image_tmp_name, $product_image_folder)) {
                     $product_image = basename($product_image);
                 } else {
-                    $product_image = "default_product.png"; // Use default if upload fails
+                    $product_image = "default_product.png";
                 }
             } else {
-                // Keep existing image if no new file is uploaded
-                $query = "SELECT productImage FROM product WHERE productId = ?";
-                $stmt = mysqli_prepare($conn, $query);
-                mysqli_stmt_bind_param($stmt, "i", $productId);
-                mysqli_stmt_execute($stmt);
-                $result = mysqli_stmt_get_result($stmt);
-                $row = mysqli_fetch_assoc($result);
-                $product_image = $row['productImage'] ?? "default_product.png";
-                mysqli_stmt_close($stmt);
+                $product_image = "default_product.png";
             }
         
-            // Update product details in database
-            $query = "UPDATE product SET nameOfProduct=?, category=?, productDescription=?, productImage=? WHERE productId=?";
+            // Insert product
+            $query = "INSERT INTO product (artisanId, nameOfProduct, category, productDescription, productImage) VALUES (?, ?, ?, ?, ?)";
             $stmt = mysqli_prepare($conn, $query);
-            mysqli_stmt_bind_param($stmt, "ssssi", $product_name, $category, $description, $product_image, $productId);
+            mysqli_stmt_bind_param($stmt, "issss", $artisanId, $product_name, $category, $description, $product_image);
         
             if (mysqli_stmt_execute($stmt)) {
-                header("Location: artisanPage.php?success=ProductUpdated&openModal=editProductModal");
+                header("Location: artisanPage.php?success=ProductAdded&openModal=addProductModal");
             } else {
-                echo "Error updating product: " . mysqli_error($conn);
+                echo "Error: " . mysqli_error($conn);
             }
         
             mysqli_stmt_close($stmt);
             exit();
-        }elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['storyId'])) {
-            $storyId = intval($_POST['storyId']);
-            // Handle story deletion if a request is made
-            $query = "DELETE FROM artisanstories WHERE storyId = ?";
-            $stmt = mysqli_prepare($conn, $query);
-            mysqli_stmt_bind_param($stmt, "i", $storyId);
-        
-            if (mysqli_stmt_execute($stmt)) {
-                header("Location: artisanPage.php?success=StoryDeleted");
+        }elseif (isset($_POST['form_type']) && $_POST['form_type'] === "add_story") {
+
+
+                if (!isset($_POST['title_story'], $_POST['category'], $_POST['place'], $_POST['description'])) {
+                    die("Missing required fields.");
+                }
+            
+                $title = trim($_POST['title_story']);
+                $category = trim($_POST['category']);
+                $place = trim($_POST['place']);
+                $description = trim($_POST['description']);
+            
+                // Validate inputs (optional but recommended)
+                if (empty($title) || empty($category) || empty($place) || empty($description)) {
+                    die("All fields are required.");
+                }
+            
+                // Handle image upload securely
+                $default_image = "default_story.png";
+                $artisan_image = $default_image;
+
+                if (!empty($_FILES['artisan_image']['name'])) {
+                    // Generate a unique filename
+                    $artisan_image = uniqid('story_') . '.' . pathinfo($_FILES['artisan_image']['name'], PATHINFO_EXTENSION);
+                    $artisan_image_folder = 'artisan_image/' . $artisan_image;
+
+                    // Attempt to move the uploaded file
+                    if (!move_uploaded_file($_FILES['artisan_image']['tmp_name'], $artisan_image_folder)) {
+                        $artisan_image = $default_image; // Revert to default if upload fails
+                    }
+                }
+            
+                // Insert story into database
+                $query = "INSERT INTO artisanstories (artisanId, title, category, place, story, artisanPhoto) 
+                        VALUES (?, ?, ?, ?, ?, ?)";
+                $stmt = mysqli_prepare($conn, $query);
+            
+                if (!$stmt) {
+                    die("Statement preparation failed: " . mysqli_error($conn));
+                }
+            
+                mysqli_stmt_bind_param($stmt, "isssss", $artisanId, $title, $category, $place, $description, $artisan_image);
+            
+                if (mysqli_stmt_execute($stmt)) {
+                    header("Location: artisanPage.php?success=StoryAdded&openModal=addStory");
+                    exit();
+                } else {
+                    echo "Error: " . mysqli_error($conn);
+                }
+            
+                mysqli_stmt_close($stmt);
+            }elseif (isset($_POST['form_type']) && $_POST['form_type'] === "edit_product") { //Edit Products and Update
+                $productId = intval($_POST['productId']);
+                $product_name = $_POST['product_name'];
+                $category = $_POST['category'];
+                $description = $_POST['description'];
+            
+                // Handle product image upload
+                if (!empty($_FILES['product_image']['name'])) {
+                    $product_image = $_FILES['product_image']['name'];
+                    $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
+                    $product_image_folder = 'uploaded_img/' . basename($product_image);
+            
+                    if (move_uploaded_file($product_image_tmp_name, $product_image_folder)) {
+                        $product_image = basename($product_image);
+                    } else {
+                        $product_image = "default_product.png"; // Use default if upload fails
+                    }
+                } else {
+                    // Keep existing image if no new file is uploaded
+                    $query = "SELECT productImage FROM product WHERE productId = ?";
+                    $stmt = mysqli_prepare($conn, $query);
+                    mysqli_stmt_bind_param($stmt, "i", $productId);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                    $row = mysqli_fetch_assoc($result);
+                    $product_image = $row['productImage'] ?? "default_product.png";
+                    mysqli_stmt_close($stmt);
+                }
+            
+                // Update product details in database
+                $query = "UPDATE product SET nameOfProduct=?, category=?, productDescription=?, productImage=? WHERE productId=?";
+                $stmt = mysqli_prepare($conn, $query);
+                mysqli_stmt_bind_param($stmt, "ssssi", $product_name, $category, $description, $product_image, $productId);
+            
+                if (mysqli_stmt_execute($stmt)) {
+                    header("Location: artisanPage.php?success=ProductUpdated&openModal=editProductModal");
+                } else {
+                    echo "Error updating product: " . mysqli_error($conn);
+                }
+            
+                mysqli_stmt_close($stmt);
                 exit();
-            } else {
-                echo "Error deleting story: " . mysqli_error($conn);
+            }elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['storyId'])) {
+                $storyId = intval($_POST['storyId']);
+                // Handle story deletion if a request is made
+                $query = "DELETE FROM artisanstories WHERE storyId = ?";
+                $stmt = mysqli_prepare($conn, $query);
+                mysqli_stmt_bind_param($stmt, "i", $storyId);
+            
+                if (mysqli_stmt_execute($stmt)) {
+                    header("Location: artisanPage.php?success=StoryDeleted");
+                    exit();
+                } else {
+                    echo "Error deleting story: " . mysqli_error($conn);
+                }
+            
+                mysqli_stmt_close($stmt);
+                mysqli_close($conn);
+                exit;
+            }elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['productId'])) {
+                $productId = intval($_POST['productId']);
+
+                $query = "DELETE FROM product WHERE productId = ?";
+                $stmt = mysqli_prepare($conn, $query);
+                mysqli_stmt_bind_param($stmt, "i", $productId);
+            
+                if (mysqli_stmt_execute($stmt)) {
+                    header("Location: artisanPage.php?success=ProductDeleted");
+                    exit();
+                } else {
+                    echo "Error deleting story: " . mysqli_error($conn);
+                }
+            
+                mysqli_stmt_close($stmt);
+                mysqli_close($conn);
+                exit;
             }
-        
-            mysqli_stmt_close($stmt);
-            mysqli_close($conn);
-            exit;
-        }
-}
+    }
+
 ?>
 
 
@@ -318,7 +320,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <div class="product-actions">
                         <button class="edit-btn" onclick="openEditProductModal(<?php echo $product['productId']; ?>)">Edit Product</button>
-                        <button class="delete-btn"onclick="confirmDelete(<?php echo $product['productId']; ?>)">Delete Product</button>
+                        <button class="delete-btn"onclick="confirmDeleteProduct(<?php echo $product['productId']; ?>)">Delete Product</button>
                     </div>
                 </div>
                 <?php 
@@ -330,6 +332,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ?>
             </div>
 
+            <script>
+                function openModal(modalId) {
+                    document.getElementById(modalId).style.display = "block";
+                }
+                function closeModal(modalId) {
+                    document.getElementById(modalId).style.display = "none";
+                }
+            </script>
+
+            
             <h2>Stories</h2>
 
             <div class="row">
@@ -352,7 +364,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <div class="product-actions">
                         <button class="edit-btn" onclick="openEditProductModal(<?php echo $product['storyId']; ?>)">Edit Stories</button>
-                        <button class="delete-btn"onclick="confirmDelete(<?php echo $product['storyId']; ?>)">Delete Stories</button>
+                        <button class="delete-btn"onclick="confirmDeleteStories(<?php echo $product['storyId']; ?>)">Delete Stories</button>
                     </div>
                 </div>
                 <?php 
@@ -483,7 +495,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     </script>
 
-
     <!-- Delete Product Modal -->
     <div class="modalDEL" id="delprod">
             <div class="modal-contentDEL">
@@ -493,26 +504,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <p class="modal-message">Are you sure you want</p>
                 <p class="modal-message">to delete this product?</p>
-                <form action="artisanPage.php" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="form_type" value="edit_product">
-                    <input type="hidden" id="deleteProductId">
-                    <button class="confirm-button" onclick="deleteProduct()">Yes</button>
+                <form action="artisanPage.php" method="POST" enctype="multipart/form-data" id="deleteForm1">
+                    <input type="hidden" name="form_type" value="delete_product1">
+                    <input type="hidden" id="deleteProductId" name="productId">
+                    <button class="confirm-button">Yes</button>
                 </form>
             </div>
         </div>
 
         <script>
-            function confirmDelete(productId) {
+            function confirmDeleteProduct(productId) {
                 document.getElementById("deleteProductId").value = productId;
                 document.getElementById("delprod").style.display = "flex";
             }
 
-
-            function deleteProduct() {
+            // Optionally, handle form submission via AJAX
+            document.getElementById('deleteForm1').onsubmit = function(event) {
+                event.preventDefault();  // Prevent default form submission
                 var productId = document.getElementById("deleteProductId").value;
 
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST", "", true);
+                xhr.open("POST", "artisanPage.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
                 xhr.onreadystatechange = function () {
@@ -521,11 +533,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                 };
 
-                xhr.send("productId=" + productId);
-            }
+                xhr.send("productId=" + productId + "&form_type=delete_product1");
+            };
+            
         </script>
 
-        <!-- Delete Stories Modal -->
+    
+    <!-- Delete Stories Modal -->
     <div class="modalDEL" id="delstor">
         <div class="modal-contentDEL">
             <span class="close" onclick="closeModal('delstor')">&times;</span>
@@ -533,7 +547,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span class="material-symbols-outlined">delete</span>
             </div>
             <p class="modal-message">Are you sure you want</p>
-            <p class="modal-message">to delete this product?</p>
+            <p class="modal-message">to delete this stories?</p>
             <form action="artisanPage.php" method="POST" enctype="multipart/form-data" id="deleteForm">
                 <input type="hidden" name="form_type" value="delete_story">
                 <input type="hidden" id="deleteStorId" name="storyId">
@@ -543,7 +557,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <script>
-        function confirmDelete(storyId) {
+        function confirmDeleteStories(storyId) {
             document.getElementById("deleteStorId").value = storyId;
             document.getElementById("delstor").style.display = "flex";
         }
