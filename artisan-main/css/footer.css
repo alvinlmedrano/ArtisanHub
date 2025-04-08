@@ -1,10 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
 body {
     font-family: 'Lato', sans-serif;
     display: block;
@@ -26,7 +19,6 @@ body {
     width: 100%;
     background: url('img/violet.png') center/cover no-repeat;
 }
-
 
 .about-section {
     text-align: center;

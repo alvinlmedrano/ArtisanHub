@@ -814,12 +814,13 @@ input::placeholder {
 .product-card {
     display: flex;
     flex-direction: column;
-    margin-right: 550px; /* Adds space between card and actions */
+    width: 80%;
 }
 
 .product-actions {
     display: flex;
     flex-direction: column; /* Keeps buttons stacked vertically */
+    width: 15%;
 }
 
 .product-image {
@@ -839,7 +840,9 @@ input::placeholder {
     padding: 10px 20px;
     border-radius: 20px;
     margin-top: -5px;
-    cursor: pointer;
+    width: auto;
+    min-width: 150px;
+    align-self: flex-start; /* This is the key */
 }
 
 .edit-btn, .delete-btn {

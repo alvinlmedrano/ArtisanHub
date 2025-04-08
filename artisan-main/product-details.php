@@ -44,7 +44,6 @@
 </head>
 <body>
 
-<section>
     <div id="1"></div>
     <script>
         load("header.html");
@@ -135,5 +134,6 @@
             document.getElementById(4).innerHTML = req.responseText;
         }
     </script>
+    
 </body>
 </html>

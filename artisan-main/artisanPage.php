@@ -239,8 +239,7 @@
     <title>Profile</title>
     <script src="js/jQuery3.4.1.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=logout" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=delete" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="css/artisanpage.css">
 </head>
 <body>
@@ -263,7 +262,7 @@
     <div class="profile-container">
             <div class="profile-header">
                 <h2 class="watda">MY PROFILE</h2>
-                <a onclick="openModal('delprod')" class="logout"><i class="fa fa-sign-out-alt"></i> Log out</a>
+                <a onclick="openModal('logout')" class="logout"><i class="fa fa-sign-out-alt"></i> Log out</a>
             </div>
 
             <div class="profile-content">
@@ -497,9 +496,9 @@
     </script>
 
      <!-- Logout Account Modal -->
-     <div class="modalDEL" id="delprod">
+     <div class="modalDEL" id="logout">
             <div class="modal-contentDEL">
-                <span class="close" onclick="closeModal('delprod')">&times;</span>
+                <span class="close" onclick="closeModal('logout')">&times;</span>
                 <div class="icon">
                     <span class="material-symbols-outlined">logout</span>
                 </div>

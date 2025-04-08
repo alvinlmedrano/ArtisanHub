@@ -218,3 +218,8 @@ body::before {
     margin-left: 30px;
     font-size: 40px;
 }
+
+footer {
+    margin: 0;
+    padding: 0;
+}
