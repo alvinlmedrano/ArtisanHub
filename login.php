@@ -72,8 +72,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="js/jQuery3.4.1.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <link rel="stylesheet" href="css/register.css">
+
+    <script>
+        // Prevent back navigation after logout
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
 </head>
-<body>
+<body onload="noBack();">
 
     <section>
 

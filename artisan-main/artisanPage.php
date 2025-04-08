@@ -239,6 +239,7 @@
     <title>Profile</title>
     <script src="js/jQuery3.4.1.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=logout" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=delete" />
     <link rel="stylesheet" href="css/artisanpage.css">
 </head>
@@ -261,8 +262,8 @@
     
     <div class="profile-container">
             <div class="profile-header">
-                <h2>MY PROFILE</h2>
-                <a href="logout.php" class="logout"><i class="fa fa-sign-out-alt"></i> Log out</a>
+                <h2 class="watda">MY PROFILE</h2>
+                <a onclick="openModal('delprod')" class="logout"><i class="fa fa-sign-out-alt"></i> Log out</a>
             </div>
 
             <div class="profile-content">
@@ -297,7 +298,7 @@
                     </div>
             </div>
 
-            <h2>Products</h2>
+            <h2 class="wello">Products</h2>
         </div>
 
         <div class="small-container">
@@ -342,7 +343,7 @@
             </script>
 
             
-            <h2>Stories</h2>
+            <h2 class="klp">Stories</h2>
 
             <div class="row">
                 <?php
@@ -432,7 +433,7 @@
                 <div class="input-grouprightEDIT"><br><br><br><br><br>
                     <textarea name="description" id="editProductDescription" rows="4" placeholder="Provide description about the product..." required></textarea>
                 </div>
-                <button type="submit" class="save-btn">Update</button>
+                <button type="submit" class="save-btn123">Update</button>
             </div>
             </form>
         </div>
@@ -494,6 +495,26 @@
 
     }
     </script>
+
+     <!-- Logout Account Modal -->
+     <div class="modalDEL" id="delprod">
+            <div class="modal-contentDEL">
+                <span class="close" onclick="closeModal('delprod')">&times;</span>
+                <div class="icon">
+                    <span class="material-symbols-outlined">logout</span>
+                </div>
+                <p class="modal-message">Are you sure you want</p>
+                <p class="modal-message">to logout?</p>
+                
+                <button onclick="logout()" class="confirm-button">Yes</button>
+            </div>
+        </div>
+
+        <script>
+            function logout() {
+                window.location.href = "logout.php";  // Redirects to logout.php
+            }
+        </script>
 
     <!-- Delete Product Modal -->
     <div class="modalDEL" id="delprod">
@@ -614,19 +635,15 @@
                     <div class="input-group23EDIT">
                         <label>Add Product Photo:</label>
                         <input type="file" id="editProductPhoto" class="wowers" name="product_image" accept="image/*">
-                        <label for="editProductPhoto" class="upload-placeholder">
-                            <img id="editImagePreview" src="" class="preview-img12">
-                            <p>Click to upload photo</p>
-                        </label>
+
                     </div>
             </div>
 
-            <!-- Move right-boxEDIT outside the left-boxEDIT -->
             <div class="right-boxEDIT">
                 <div class="input-grouprightEDIT"><br><br><br><br><br>
                     <textarea name="description" id="editProductDescription" rows="4" placeholder="Provide description about the product..." required></textarea>
                 </div>
-                <button type="submit" class="save-btn">Add Product</button>
+                <button type="submit" class="save-btn125">Add Product</button>
             </div>
         </form>
         </div>
@@ -661,30 +678,32 @@
 }
     </script>
 
+
+
 <!-- Edit Details Modal -->
 <div class="modal2" id="editDeets">
     <div class="modal-content2">
         <span class="close" onclick="closeModal('editDeets')">&times;</span>
 
         <div class="leftbbox">
-        <form action="artisanPage.php" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="form_type" value="edit_details">
+            <form action="artisanPage.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="form_type" value="edit_details">
 
-                <p class="unaA">Basic Information</p>
-                <h2 class="modalttitle">ARTISAN</h2> <br><br>
-                
-                <label for="name">NAME</label>
-                <input type="text" class="leftInput" id="name" name="name" value="<?php echo htmlspecialchars($profile['name']); ?>" required><br><br>
-                
-                <label for="age">AGE</label>
-                <input type="number" class="leftInput" id="age" name="age" value="<?php echo htmlspecialchars($profile['age']); ?>" required><br><br>
-                
-                <label for="address">ADDRESS</label>
-                <input type="text" class="leftInput" id="address" name="address" value="<?php echo htmlspecialchars($profile['address']); ?>" required><br><br>
-                
-                <div class="weyt">
-                    <button type="submit" class="savebbtn">SAVE</button>
-                </div>
+                    <p class="unaA">Basic Information</p>
+                    <h2 class="modalttitle">ARTISAN</h2> <br><br>
+                    
+                    <label for="name">NAME</label>
+                    <input type="text" class="leftInput" id="name" name="name" value="<?php echo htmlspecialchars($profile['name']); ?>" required><br><br>
+                    
+                    <label for="age">AGE</label>
+                    <input type="number" class="leftInput" id="age" name="age" value="<?php echo htmlspecialchars($profile['age']); ?>" required><br><br>
+                    
+                    <label for="address">ADDRESS</label>
+                    <input type="text" class="leftInput" id="address" name="address" value="<?php echo htmlspecialchars($profile['address']); ?>" required><br><br>
+                    
+                    <div class="weyt">
+                        <button type="submit" class="savebbtn">SAVE</button>
+                    </div>
         </div>
 
         <div class="rightbbox">
@@ -726,7 +745,7 @@
 
 <!-- Add Story Modal -->
 <div class="modalEDIT" id="addStory">
-    <div class="modal-contentEDIT">
+    <div class="modal-contentEDIT55">
         <span class="close" onclick="closeModal('addStory')">&times;</span>
 
         <div class="left-boxEDIT">
@@ -791,7 +810,7 @@
                         <label for="product_image" class="upload-placeholder22">
                         <img id="productPreview" src="artisan_image/default_product.png" alt="Click To Add Photo" class="preview-img22">
                         <p>Click to add photo</p>
-                        </label>
+                    </label>
                 </div>
 
 
@@ -823,7 +842,7 @@
                 <textarea name="description" rows="4" placeholder="Write story here..." required></textarea>
             </div>
             
-            <button type="submit" class="save-btn">Save</button>
+            <button type="submit" class="save-btn124">Add Artisan</button>
         </form>
     </div>
 

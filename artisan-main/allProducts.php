@@ -59,7 +59,7 @@ $select = mysqli_query($conn, "SELECT * FROM product");
 </script>
 
 
-
+    <br><br><br><br><br><br><br><br>
     <!-- FOOTER -->
     <div id="4"></div>
     <script>

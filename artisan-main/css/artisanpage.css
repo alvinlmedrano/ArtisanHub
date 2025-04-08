@@ -94,7 +94,21 @@ h2 {
     display: flex;
     gap: 70px; /* Added gap to space out buttons */
 }
+.watda {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
 
+.wello {
+    font-size: 50px;
+    margin-bottom: 10px;
+    margin-top: 70px;
+}
+
+.klp {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
 
 .btn {
     background: #8B572A;
@@ -175,16 +189,15 @@ h2 {
     text-align: left;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 30px;
+    
 }
 
 .modal-contentEDIT {
     font-family: 'Montserrat', sans-serif;
     background: white;
     padding: 30px;
-    height: 500px;
-    width: 750px;
+    height: 460px;
+    width: 800px;
     border-radius: 25px;
     position: fixed;
     top: 50%;
@@ -195,14 +208,35 @@ h2 {
     flex-direction: row; /* This will align children in a row */
     align-items: center; /* Align items vertically centered */
     justify-content: space-between; /* Space between items */
-    gap: 30px; /* Space between items */
+}
+
+.modal-contentEDIT55 {
+    font-family: 'Montserrat', sans-serif;
+    background: white;
+    padding: 30px;
+    height: 580px;
+    width: 900px;
+    border-radius: 25px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    display: flex; /* Change this to flex */
+    flex-direction: row; /* This will align children in a row */
+    align-items: center; /* Align items vertically centered */
+    justify-content: space-between; /* Space between items */
+}
+
+.logout{
+    cursor: pointer;
 }
 
 .modal-contentDEL {
     font-family: 'Montserrat', sans-serif;
     background: white;
     padding: 50px;
-    width: 250px;
+    width: 300px;
     border-radius: 25px;
     position: fixed;
     top: 50%;
@@ -266,10 +300,11 @@ h2 {
 }
 
 .modal-titleEDIT {
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: bolder;
+    margin-bottom: 30px;
     font-family: 'Montserrat', sans-serif;
     color: #8B572A;
-    font-weight: bold;
     display: inline-block; /* Prevents forced breaking */
 }
 
@@ -441,7 +476,7 @@ input::placeholder {
 }
 
 .right-boxEDIT {
-    padding: 45px;
+    padding: 30px;
     width: 70%;
     height: 100%;
 }
@@ -486,6 +521,8 @@ input::placeholder {
     padding: 10px;
     color: #8B572A;
     overflow: hidden;
+    margin-left: 30px;
+    margin-top: 5px;
 }
 
 
@@ -564,6 +601,45 @@ input::placeholder {
     background: #6b3f1a;
 }
 
+.save-btn123 {
+    background: #8B572A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.save-btn123:hover {
+    background: #6b3f1a;
+}
+
+.save-btn124 {
+    background: #8B572A;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 10px;
+    width: 120px;
+    padding: 10px;
+}
+.save-btn124:hover {
+    background: #6b3f1a;
+}
+
+.save-btn125 {
+    background: #8B572A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.save-btn125:hover {
+    background: #6b3f1a;
+}
+
 .leftbbox{
     font-weight: bold;
     width: 50%;
@@ -587,7 +663,7 @@ input::placeholder {
     font-weight: bold;
     padding: 45px;
     font-family: 'Montserrat', sans-serif;
-    width: 30%;
+    width: 50%;
     height: 100%;
 }
 
@@ -630,7 +706,7 @@ input::placeholder {
 
 .leftInput {
     width: 100%; /* Adjust as needed, e.g., 80% or 300px */
-    height: 20px; /* Adjust height */
+    height: 40px; /* Adjust height */
     padding: 5px; /* Optional for better spacing */
     font-size: 16px; /* Adjust font size if needed */
     border-radius: 5px; /* Optional for rounded corners */
@@ -643,6 +719,7 @@ input::placeholder {
     padding-top: 0;
     margin-top: 0;
     margin-bottom: 0;
+    margin-left: 20px;
     font-size: 30px;
     font-family: 'Montserrat', sans-serif;
     color: #8B572A;
@@ -673,6 +750,7 @@ input::placeholder {
     display: flex;
     text-align: center;
     justify-content: center; /* Centers horizontally */
+    margin-left: 70px;
     
 }
 
