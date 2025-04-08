@@ -69,7 +69,7 @@
         <?php endif; ?>
 
         <div class="div2">
-            <img src="artisan-main/artisan_image/<?php echo htmlspecialchars($story['artisanPhoto']); ?>" alt="Artisan Photo">
+            <img src="../artisan-main/artisan_image/<?php echo htmlspecialchars($story['artisanPhoto']); ?>" alt="Artisan Photo">
             
             <p><strong>Category:</strong> <?php echo htmlspecialchars($story['category']); ?></p>
             <p><strong>Place:</strong> <?php echo htmlspecialchars($story['place']); ?></p>
@@ -92,7 +92,7 @@
 
                     <div class="card">
                         <div class="img-container">
-                            <img src="artisan-main/uploaded_img/<?php echo $product['productImage']; ?>" alt="<?php echo $product['nameOfProduct']; ?>">
+                            <img src="../artisan-main/uploaded_img/<?php echo $product['productImage']; ?>" alt="<?php echo $product['nameOfProduct']; ?>">
                         </div>
                         <h5 class="product_name"><?php echo $product['nameOfProduct']; ?></h5>
                     </div>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Montserrat&family=Proxima+Nova&family=Great+Vibes&family=Allura&family=Dancing+Script:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
  /* Ensure full page layout */
  body {
     display: flex;
@@ -7,69 +9,211 @@
 
 }
 
+body::before {
+    content: "";
+    position: fixed; /* Try fixed instead of absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ensures it covers the screen */
+    background: url('img/bgAll.png') center/cover no-repeat;
+    opacity: 0.1;
+    z-index: -1;
+}
+
 main {
-flex: 1;
-min-height: 500px;
-display: flex;
-align-items: center;
-justify-content: flex-start; /* Align content to the left */
-position: relative;
+    flex: 1;
+    height: 600px; /* Set full viewport height */
+    display: flex;
+    flex-direction: row;
+   
+    position: relative;
 }
 
 .gradient {
-background-image: linear-gradient(310deg,
-hsl(266, 100%, 29%) 0%,
-hsl(266, 92%, 31%) 3%,
-hsl(266, 85%, 33%) 5%,
-hsl(266, 78%, 35%) 8%,
-hsl(266, 71%, 38%) 10%,
-hsl(266, 66%, 40%) 13%,
-hsl(266, 60%, 42%) 15%,
-hsl(266, 55%, 45%) 18%,
-hsl(266, 50%, 48%) 20%,
-hsl(266, 46%, 50%) 23%,
-hsl(266, 47%, 53%) 26%,
-hsl(266, 47%, 56%) 28%,
-hsl(266, 48%, 59%) 32%,
-hsl(266, 48%, 62%) 35%,
-hsl(266, 49%, 65%) 38%,
-hsl(266, 50%, 68%) 42%,
-hsl(266, 50%, 71%) 46%,
-hsl(266, 51%, 75%) 51%,
-hsl(266, 51%, 78%) 55%,
-hsl(266, 52%, 82%) 61%,
-hsl(266, 52%, 85%) 67%,
-hsl(266, 53%, 89%) 73%,
-hsl(266, 53%, 92%) 81%,
-hsl(266, 53%, 96%) 90%,
-hsl(0, 0%, 100%) 100%
-);
-height: 100%;
-width: 60%;
-position: absolute;
-left: 0;
-top: 0;
-clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
-z-index: -1;
-}
-
-.alvin1 {
-    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
+    background-image: linear-gradient(310deg,
+    hsl(266, 100%, 29%) 0%,
+    hsl(266, 92%, 31%) 3%,
+    hsl(266, 85%, 33%) 5%,
+    hsl(266, 78%, 35%) 8%,
+    hsl(266, 71%, 38%) 10%,
+    hsl(266, 66%, 40%) 13%,
+    hsl(266, 60%, 42%) 15%,
+    hsl(266, 55%, 45%) 18%,
+    hsl(266, 50%, 48%) 20%,
+    hsl(266, 46%, 50%) 23%,
+    hsl(266, 47%, 53%) 26%,
+    hsl(266, 47%, 56%) 28%,
+    hsl(266, 48%, 59%) 32%,
+    hsl(266, 48%, 62%) 35%,
+    hsl(266, 49%, 65%) 38%,
+    hsl(266, 50%, 68%) 42%,
+    hsl(266, 50%, 71%) 46%,
+    hsl(266, 51%, 75%) 51%,
+    hsl(266, 51%, 78%) 55%,
+    hsl(266, 52%, 82%) 61%,
+    hsl(266, 52%, 85%) 67%,
+    hsl(266, 53%, 89%) 73%,
+    hsl(266, 53%, 92%) 81%,
+    hsl(266, 53%, 96%) 90%,
+    hsl(0, 0%, 100%) 100%
+    );
     height: 100%;
     width: 60%;
     position: absolute;
     left: 0;
     top: 0;
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
     z-index: -1;
+}
+
+.alvin1 {
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
+    height: 100%;
+    height: auto;
+    width: 60%;
+    display: flex;
+    flex-direction: row; /* Stacks children vertically */
+    left: 0;
+    top: 0;
+    z-index: -1;
+    
+}
+
+.alvin2 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;       /* Stack elements vertically */
+    align-items: center;          /* Center horizontally */
+    justify-content: center;
 }
 
 .dew {
     height: 100%;
-    width: 40%;
-    padding: 50px;
+    width: 50%;
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+}
+
+.watata, .wototo {
+    margin-left: 50px;
+}
+
+.watata {
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+.weee,
+.weee1 {
+    font-family: 'Great Vibes', cursive;
+    font-weight: bolder;
+    margin: -20px;
+    padding: 0;
+    line-height: 1; /* Keeps them tight */
+}
+
+.weee {
+    font-size: 50px;
+    margin-top: 5px;
+}
+
+.weee1 {
+    font-size: 60px;
+    margin-left: 17px;
 }
 
 
+.product{
+    font-size: 60px;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Arial Black', sans-serif;
+    text-shadow:
+        2px 2px 5px #a33c00,
+        0 0 15px #a33c00;
+}
+
+.info123 {
+    font-family: 'Montserrat';
+    font-size: 16px;
+}
+
+.alvin2-img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+    margin-right: 50px;
+}
+
+.weweko {
+    height: auto; /* or remove this line entirely */
+    flex: 1; /* Fills remaining space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-container {
+    width: 90%;
+    max-width: 532px;
+    height: 469px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #eeeeec;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 2px solid black;
+}
+
+.dot.active {
+    background-color: black;
+}
+
+ 
 /* Footer */
 footer {
     text-align: center;

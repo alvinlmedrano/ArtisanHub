@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
+    <title>Homepage</title>
     
     <script src="js/jQuery3.4.1.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
@@ -32,7 +32,7 @@
                 <div class="wototo">
                     <h2 class="product">PAGABLAN</h2>
 
-                    <p>Threaded into Ilocano heritage, the pagablan 
+                    <p class="info123">Threaded into Ilocano heritage, the pagablan 
                     of Pinili preserves the art of weaving. A symbol 
                     of skill and tradition, it continues to weave 
                     stories of resilience and craftsmanship. "Inabel" 
@@ -53,8 +53,51 @@
         </div>
 
         <div class="weweko">
+            <div class="slider-container">
+              <div class="slider">
+                <img src="img/2.png" class="slide active" alt="Slide 1">
+                <img src="img/3.png" class="slide" alt="Slide 2">
+                <img src="img/4.png" class="slide" alt="Slide 3">
+              </div>
+              <!-- MOVE .dots INSIDE .slider-container -->
+              <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+          </div>
+          
 
-        </div>
+        <script>
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+        
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                    dots[i].classList.toggle('active', i === index); 
+                });
+            }
+        
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }, 3000); // Changes slide every 3 seconds
+
+            const dots = document.querySelectorAll('.dot');
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+
+                slides[index].classList.add('active');
+                dot.classList.add('active');
+                });
+            });
+        </script>
+        
 
     
     </main>

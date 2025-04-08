@@ -38,7 +38,7 @@ $select = mysqli_query($conn, "SELECT * FROM artisanstories");
             <div class="container" onclick="window.location.href='stories-deets.php?storyId=<?php echo $story['storyId']; ?>'">
                 <div class="card">
                     <div class="img-container">
-                        <img src="artisan-main/artisan_image/<?php echo $story['artisanPhoto']; ?>" alt="<?php echo $story['title']; ?>">
+                        <img src="../artisan-main/artisan_image/<?php echo $story['artisanPhoto']; ?>" alt="<?php echo $story['title']; ?>">
                     </div>
                     <h5 class="product_name"><?php echo $story['title']; ?></h5>
                 </div>
