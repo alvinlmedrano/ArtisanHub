@@ -138,20 +138,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <span class="close" onclick="closeModal('editDeets')">&times;</span>
 
         <div class="leftbbox">
-        <form action="artisanPage.php" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="form_type" value="edit_details">
+            <form action="artisanPage.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="form_type" value="edit_details">
 
-                <p class="unaA">Basic Information</p>
-                <h2 class="modalttitle">GUEST</h2> <br><br>
-                
-                <label for="name">NAME</label>
-                <input type="text" class="leftInput" id="name" name="name" value="<?php echo htmlspecialchars($profile['name']); ?>" required><br><br>
-                
-                <label for="interest">INTEREST</label><br>
-                <textarea name="interest" id="interest" rows="4" value="<?php echo htmlspecialchars($profile['interest']); ?>" required></textarea>
-                <div class="weyt">
-                    <button type="submit" class="savebbtn">SAVE</button>
-                </div>
+                    <p class="unaA">Basic Information</p>
+                    <h2 class="modalttitle">GUEST</h2> <br><br>
+                    
+                    <label for="name">NAME</label>
+                    <input type="text" class="leftInput" id="name" name="name" value="<?php echo htmlspecialchars($profile['name']); ?>" required><br><br>
+                    
+                    <label for="interest">INTEREST</label><br>
+                    <textarea name="interest" id="interest" rows="4" value="<?php echo htmlspecialchars($profile['interest']); ?>" required></textarea>
+                    <div class="weyt">
+                        <button type="submit" class="savebbtn">SAVE</button>
+                    </div>
         </div>
 
         <div class="rightbbox">

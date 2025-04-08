@@ -164,6 +164,7 @@ textarea::placeholder {
     background: rgba(0, 0, 0, 0.5);
 }
 
+/* The edit details container */
 .modal-content2 {
     font-family: 'Montserrat', sans-serif;
     background: white;
@@ -178,7 +179,6 @@ textarea::placeholder {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 30px;
 }
 
 .modal-contentEDIT {
@@ -454,9 +454,18 @@ input::placeholder {
 
 .leftbbox{
     font-weight: bold;
-    width: 50%;
+    width: 60%;
     height: 100%;
     font-family: 'Montserrat', sans-serif;
+    border: 2px solid black;
+}
+
+.rightbbox {
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    width: 40%;
+    height: 100%;
+    border: 2px solid black;
 }
 
 .inputggroup {
@@ -469,15 +478,9 @@ input::placeholder {
     justify-content: center; /* Centers horizontally */ /* Centers vertically */
     flex-direction: column;
     width: 100%;
+    border: 2px solid black;
 }
 
-.rightbbox {
-    font-weight: bold;
-    padding: 45px;
-    font-family: 'Montserrat', sans-serif;
-    width: 30%;
-    height: 100%;
-}
 
 .box{
 
@@ -518,7 +521,7 @@ input::placeholder {
 
 .leftInput {
     width: 100%; /* Adjust as needed, e.g., 80% or 300px */
-    height: 20px; /* Adjust height */
+    height: 40px; /* Adjust height */
     padding: 5px; /* Optional for better spacing */
     font-size: 16px; /* Adjust font size if needed */
     border-radius: 5px; /* Optional for rounded corners */
