@@ -1,15 +1,20 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body {
-    font-family: 'Lato', sans-serif;
-    display: block;
-    align-items: column;
-    gap:0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 80px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
+    
 }
 
 .style1 {
@@ -18,6 +23,11 @@ body {
     width: 100%;
     background: url('img/bgAll.png') center/cover no-repeat;
     align-items: center;
+}
+
+.eme {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
 }
 
 
@@ -33,17 +43,21 @@ body {
     height: 200px;
     width: 100%;
     background: #ffff;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
 h2 {
     font-size: 24px;
     margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 p {
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     margin: 10px 0;
+    margin-bottom: 40px;
 }
 
 .info-section {
@@ -52,15 +66,18 @@ p {
     gap: 50px;
     font-weight: bold;
     margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .info {
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .info a {
     text-decoration: none;
     color: #000;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .info a:hover {
@@ -70,4 +87,5 @@ p {
 .copyright {
     margin-top: 10px;
     font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
 }
