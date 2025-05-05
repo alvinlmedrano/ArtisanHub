@@ -12,19 +12,29 @@
 <body>
 
     <section>
-        <!-- HEADER -->
-    <div id="1"></div>
-    <script>
-        load("header.html");
-        function load(url){
-            req = new XMLHttpRequest();
-            req.open("GET", url, false);
-            req.send(null);
-            document.getElementById(1).innerHTML = req.responseText;
-        }
-    </script>
+         <!-- HEADER -->
+    <section id="header">
+        <a class="logoko" href="home.html">ARTISANHUB</a>
 
-    <script src="js/header.js"></script>
+        <ul id="navbar">
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="allProducts.php">PRODUCTS</a></li>
+            <li><a href="stories.php">STORIES</a></li>
+            <li><a href="login.php"><i class="fas fa-user"></i></a></li>
+        </ul>
+        
+    </section>
+
+    <script>
+        const links = document.querySelectorAll('#navbar li a');
+        const currentPage = window.location.pathname.split('/').pop();
+    
+        links.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
     
     <div class="profile-container">
         <h2>MY PROFILE</h2>

@@ -39,23 +39,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Product Content</title>
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap">
     <link rel="stylesheet" href="css/product_details.css">
 </head>
 <body>
 
-    <div id="1"></div>
-    <script>
-        load("header.html");
-        function load(url) {
-            req = new XMLHttpRequest();
-            req.open("GET", url, false);
-            req.send(null);
-            document.getElementById(1).innerHTML = req.responseText;
-        }
-    </script>
+    <!-- HEADER -->
+    <section id="header">
+        <a class="logoko" href="home.html">ARTISANHUB</a>
 
-    <script src="js/header.js"></script>
+        <ul id="navbar">
+            <li><a href="home.html">HOME</a></li>
+            <li><a class="active" href="allProducts.php">PRODUCTS</a></li>
+            <li><a href="stories.php">STORIES</a></li>
+            <li><a href="artisanPage.php"><i id="sdf" class="fas fa-user"></i></a></li>
+        </ul>
+        
+    </section>
+
+    <script>
+        const links = document.querySelectorAll('#navbar li a');
+        const currentPage = window.location.pathname.split('/').pop();
+    
+        links.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
 
     <div class="parent">
         <?php if ($product): ?>

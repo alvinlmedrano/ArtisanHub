@@ -319,7 +319,7 @@
                     </div>
 
                     <div class="product-actions">
-                        <button class="edit-btn" onclick="openEditProductModal(<?php echo $product['productId']; ?>)">Edit Product</button>
+                        
                         <button class="delete-btn"onclick="confirmDeleteProduct(<?php echo $product['productId']; ?>)">Delete Product</button>
                     </div>
                 </div>
@@ -363,7 +363,7 @@
                     </div>
 
                     <div class="product-actions">
-                        <button class="edit-btn" onclick="openEditProductModal(<?php echo $product['storyId']; ?>)">Edit Stories</button>
+    
                         <button class="delete-btn"onclick="confirmDeleteStories(<?php echo $product['storyId']; ?>)">Delete Stories</button>
                     </div>
                 </div>

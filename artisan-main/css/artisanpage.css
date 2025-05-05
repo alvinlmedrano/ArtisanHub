@@ -56,6 +56,11 @@ h2 {
     justify-content: space-between;
 }
 
+.profile-details p {
+    margin-bottom: 0;
+}
+
+
 .profile-details p strong + span,
 .profile-details p strong + text {
     font-size: 25px; /* Adjust the size as needed */
@@ -64,8 +69,8 @@ h2 {
 
 
 .profile-content img {
-    width: 150px;  /* Set width */
-    height: 150px; /* Set height to ensure a square */
+    width: 200px;  /* Set width */
+    height: 200px; /* Set height to ensure a square */
     object-fit: cover; /* Ensures the image fills the square without distortion */
     border-radius: 5px; /* Optional: adds rounded corners */
 }

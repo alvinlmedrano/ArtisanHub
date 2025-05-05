@@ -21,6 +21,8 @@ body::before {
     z-index: -1;
 }
 
+
+
 body::-webkit-scrollbar {
     display: none;
 }
@@ -28,6 +30,8 @@ body::-webkit-scrollbar {
 html {
     scroll-behavior: smooth; /* Optional: Adds smooth scrolling */
 }
+
+
 
 
 .parent {

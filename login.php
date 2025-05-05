@@ -85,18 +85,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <section>
 
-        <div id="1"></div>
-        <script>
-            load("header.html");
-            function load(url){
-                req = new XMLHttpRequest();
-                req.open("GET", url, false);
-                req.send(null);
-                document.getElementById(1).innerHTML = req.responseText;
-            }
-        </script>
+        <!-- HEADER -->
+        <section id="header">
+            <a class="logoko" href="home.html">ARTISANHUB</a>
 
-        <script src="js/header.js"></script>
+            <ul id="navbar">
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="allProducts.php">PRODUCTS</a></li>
+                <li><a href="stories.php">STORIES</a></li>
+                <li><a href="login.php"><i class="fas fa-user"></i></a></li>
+            </ul>
+            
+        </section>
+
+        <script>
+            const links = document.querySelectorAll('#navbar li a');
+            const currentPage = window.location.pathname.split('/').pop();
+        
+            links.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        </script>
         
         <div class="container">
             <div class="left-section">
@@ -108,11 +119,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h2>WELCOME BACK!</h2><br>
                 <form action="" method="POST">
                     <div class="input-box">
-                        <i class="fas fa-user"></i>
+                        <i id="dalawa" class="fas fa-user"></i>
                         <input type="text" name="username" placeholder="Username" required>
                     </div>
                     <div class="input-box">
-                        <i class="fas fa-lock"></i>
+                        <i id="lockIcon" class="fas fa-lock"></i>
                         <input type="password" name="password" placeholder="Password" required>
                     </div>
 

@@ -14,9 +14,29 @@
 <body>
 
     <!-- HEADER -->
-    <div id="header-container"></div>
+    <section id="header">
+        <a class="logoko" href="home.html">ARTISANHUB</a>
 
-    <script src="js/header.js"></script>
+        <ul id="navbar">
+            <li><a href="home.html" class="active">HOME</a></li>
+            <li><a href="allProducts.php">PRODUCTS</a></li>
+            <li><a href="stories.php">STORIES</a></li>
+            <li><a href="artisanPage.php"><i class="fas fa-user"></i></a></li>
+        </ul>
+        
+    </section>
+
+    <script>
+        const links = document.querySelectorAll('#navbar li a');
+        const currentPage = window.location.pathname.split('/').pop();
+    
+        links.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+    
 
     <main>
         <div class="gradient"></div>
@@ -103,22 +123,15 @@
     </main>
 
     <!-- FOOTER -->
-    <footer id="footer-container">
-        Footer Content Here
-    </footer>
-
+    <div id="4"></div>
     <script>
-        function load(url, elementId) {
-            let req = new XMLHttpRequest();
+        load("footer.html");
+        function load(url) {
+            req = new XMLHttpRequest();
             req.open("GET", url, false);
             req.send(null);
-            document.getElementById(elementId).innerHTML = req.responseText;
+            document.getElementById(4).innerHTML = req.responseText;
         }
-
-        window.onload = function () {
-            load("header.html", "header-container");
-            load("footer.html", "footer-container");
-        };
     </script>
 
 </body>
